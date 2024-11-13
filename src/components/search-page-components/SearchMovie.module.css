@@ -1,0 +1,47 @@
+
+.movie-item {
+  height: 100%;
+  margin: 2rem 0;
+  padding: 0;
+  border-radius: 4px;
+  background-color: #929aa2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  gap: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 20rem;
+
+  break-inside: avoid-column;
+}
+
+.movie-item img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.movie-item-content {
+  height: 100%;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.movie-item h2 {
+  font-size: 1.15rem;
+  margin: 0;
+  color: #f3f0f2;
+}
+
+.movie-item .movie-item-date {
+  margin: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.movie-item .movie-item-location {
+  margin: 0.5rem;
+  font-size: 1rem;
+}
