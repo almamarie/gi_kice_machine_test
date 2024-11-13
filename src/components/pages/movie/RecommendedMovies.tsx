@@ -5,6 +5,7 @@ import { fetchRecommendedMovies } from "../../../utils/http/movies.http";
 import LoadingIndicator from "../../ui/LoadingIndicator";
 import styles from "./RecommendedMovies.module.css";
 import ErrorBlock from "../../ui/ErrorBlock";
+import { Link } from "react-router-dom";
 
 const RecommendedMovies = (props: { id: string | undefined }) => {
   const { id } = props;
@@ -30,14 +31,16 @@ const RecommendedMovies = (props: { id: string | undefined }) => {
       <li className={styles.list}>
         {data &&
           data.slice(0, 6).map((movie) => (
-            <div key={movie.id} className={styles.movie}>
-              <img
-                className={styles["rec-img"]}
-                src={movie.posterPath}
-                alt={movie.title}
-              />
-              <h3>{movie.title}</h3>
-            </div>
+            <Link to={`/movie/${movie.id}`} className={styles.link}>
+              <div key={movie.id} className={styles.movie}>
+                <img
+                  className={styles["rec-img"]}
+                  src={movie.posterPath}
+                  alt={movie.title}
+                />
+                <h3>{movie.title}</h3>
+              </div>
+            </Link>
           ))}
       </li>
     </div>

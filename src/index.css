@@ -1,16 +1,4 @@
-:root{
-  /* primary */
 
-  /* SEMANTIC YELLOW */
-  
-
-  /* BLUR AND SHADOW */
-  --backdrop-filter: blur(5px);
-  --drop-shadow--medium: 4px 4px 4px 0 rgba(0,0,0,5%);
-  --drop-shadow--small: 2px 2px 2px 30 rgba(0,0,0,5%);
-
-  --default--max-width: 111.6rem;
-}
 
 html{
   font-size: 62.5%;
