@@ -3,6 +3,11 @@
     margin: 0 auto;
 }
 
+.home-link a,.home-link a:visited{
+    text-decoration: none;
+    color: rgb(0, 36, 128);
+}
+
 
 .title{
     font-size: 3.2rem;
@@ -14,7 +19,6 @@
 .article{
      display: flex;
      flex-direction: column;
-    /* align-items: center; */
     width: 60%;
 
     margin: 0 auto;

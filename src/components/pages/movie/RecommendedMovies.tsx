@@ -31,8 +31,12 @@ const RecommendedMovies = (props: { id: string | undefined }) => {
       <li className={styles.list}>
         {data &&
           data.slice(0, 6).map((movie) => (
-            <Link to={`/movie/${movie.id}`} className={styles.link}>
-              <div key={movie.id} className={styles.movie}>
+            <Link
+              key={movie.id}
+              to={`/movie/${movie.id}`}
+              className={styles.link}
+            >
+              <div className={styles.movie}>
                 <img
                   className={styles["rec-img"]}
                   src={movie.posterPath}

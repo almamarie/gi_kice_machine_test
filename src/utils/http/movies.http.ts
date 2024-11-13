@@ -91,6 +91,36 @@ export const fetchMovie = async (movieData: FetchMovieType) => {
   }
 };
 
+export const fetchMovieTrailer = async (movieData: FetchMovieType) => {
+  if (movieData.id === undefined) {
+    new CustomError(400, "invalid id provided");
+  }
+  const url = `https://api.themoviedb.org/3/movie/${movieData.id}/videos`;
+
+  const response = await fetch(url, {
+    signal: movieData.signal,
+    headers: {
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODYzM2NjMzcxOGQ0Zjg5ZWU3NzY3N2QxNmU3OGIwYSIsIm5iZiI6MTczMTQ4ODY0NC4yNjUyODM2LCJzdWIiOiI2NzM0NmE4NTc2YWYzYWU3YjYzOGJhZDAiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.NHQjdB0VbFRCIlsB71YD0FOwL1c9Kl3_wHPzkHLOEcQ`,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    const error = new CustomError(
+      response.status,
+      "An error occurred while fetching movie trailer",
+      response.status === 500
+        ? { message: "An error occured. Please try again later" }
+        : await data
+    );
+
+    throw error;
+  } else {
+    return data.results[0].key;
+  }
+};
+
 export const fetchRecommendedMovies = async (movieData: FetchMovieType) => {
   if (movieData.id === undefined) {
     new CustomError(400, "invalid id provided");

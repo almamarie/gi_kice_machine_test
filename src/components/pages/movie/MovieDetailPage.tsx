@@ -1,20 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import { fetchMovie } from "../../../utils/http/movies.http";
+import { fetchMovie, fetchMovieTrailer } from "../../../utils/http/movies.http";
 import LoadingIndicator from "../../ui/LoadingIndicator";
 import ErrorBlock from "../../ui/ErrorBlock";
 import styles from "./MovieDetailPage.module.css";
 import RecommendedMovies from "./RecommendedMovies";
+import { Link } from "react-router-dom";
 
 const MovieDetailPage = () => {
   const { id } = useParams();
 
-  const { data, isError, error, isLoading } = useQuery({
+  const { data, isError, isLoading } = useQuery({
     queryKey: ["events", { id }],
     queryFn: ({ signal }) => fetchMovie({ signal, id }),
     enabled: id !== undefined,
   });
-
+  const { data: trailerId } = useQuery({
+    queryKey: ["events", "trailor ID", { id }],
+    queryFn: ({ signal }) => fetchMovieTrailer({ signal, id }),
+    enabled: id !== undefined,
+  });
+  console.log(`https://www.youtube.com/watch?v=${trailerId}`);
   return (
     <>
       <div className={styles.wrapper}>
@@ -27,6 +33,11 @@ const MovieDetailPage = () => {
         )}
         {data && (
           <article className={styles.article}>
+            <p className={styles["home-link"]}>
+              <Link to={`/`} className={styles["back-link"]}>
+                Back to Search
+              </Link>
+            </p>
             <header>
               <h1 className={styles.title}>{`${data.title} (${
                 data.releaseDate.split("-")[0]
@@ -58,7 +69,10 @@ const MovieDetailPage = () => {
 
             <div className={styles.trailer}>
               <video className={styles["trailer-player"]} controls>
-                <source src={data.trailerId} type="video/mp4" />
+                <source
+                  src={`https://www.youtube.com/watch?v=${trailerId}`}
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
             </div>
