@@ -20,7 +20,7 @@ const SearchMovie = (props: { movie: Movie }) => {
           <p className="movie-item-location">VoteCount: {movie.voteCount}</p>
         </div>
         <p>
-          <Link to={`/movies/${movie.id}`} className="button">
+          <Link to={`/movie/${movie.id}`} className="button">
             View Details
           </Link>
         </p>

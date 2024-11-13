@@ -45,3 +45,10 @@
   margin: 0.5rem;
   font-size: 1rem;
 }
+
+
+@media (max-width:59.375em ) {
+    .movie-item{
+        width: 15rem;
+    }
+}
