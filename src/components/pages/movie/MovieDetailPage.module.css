@@ -55,6 +55,7 @@
 
 .trailer-player{
     width: 50%;
+    height: auto;
 }
 
 @media (max-width:62.5em ) {

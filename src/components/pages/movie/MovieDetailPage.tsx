@@ -67,14 +67,16 @@ const MovieDetailPage = () => {
               </p>
             </div>
 
-            <div className={styles.trailer}>
-              <video className={styles["trailer-player"]} controls>
-                <source
-                  src={`https://www.youtube.com/watch?v=${trailerId}`}
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
+            <div className={styles["trailer-player"]}>
+              <iframe
+                className="trailer-player"
+                width="100%" /* Adjust the width as needed */
+                height="auto" /* Adjust the height as needed */
+                src={`https://www.youtube.com/embed/${trailerId}`}
+                title={`trailer of ${data.title}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </article>
         )}
