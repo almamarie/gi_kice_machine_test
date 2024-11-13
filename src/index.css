@@ -1,0 +1,70 @@
+:root{
+  /* primary */
+
+  /* SEMANTIC YELLOW */
+  
+
+  /* BLUR AND SHADOW */
+  --backdrop-filter: blur(5px);
+  --drop-shadow--medium: 4px 4px 4px 0 rgba(0,0,0,5%);
+  --drop-shadow--small: 2px 2px 2px 30 rgba(0,0,0,5%);
+
+  --default--max-width: 111.6rem;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+  font-size: 1.4rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color--neutral-black__B500);
+  font-size: 1.4rem;
+  line-height: 175%;
+}
+
+
+
+.error-block {
+  background-color: #f0d9e5;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 4px;
+  color: #890b35;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  text-align: left;
+}
+
+.error-block-icon {
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  color: #fff;
+  background-color: #890b35;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-block h2 {
+  color: inherit;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.error-block p {
+  margin: 0;
+}
